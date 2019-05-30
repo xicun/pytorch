@@ -606,13 +606,13 @@
   options:
     - cname: ltValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: ltTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
@@ -647,13 +647,13 @@
   options:
     - cname: gtValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: gtTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
@@ -688,13 +688,13 @@
   options:
     - cname: leValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: leTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
@@ -729,13 +729,13 @@
   options:
     - cname: geValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: geTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
@@ -770,13 +770,13 @@
   options:
     - cname: eqValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: eqTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
@@ -811,13 +811,13 @@
   options:
     - cname: neValue
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - THTensor* self
         - real other
     - cname: neTensor
       arguments:
-        - arg: THByteTensor* result
+        - arg: THBoolTensor* result
           output: True
         - arg: THTensor* self
           broadcast: other fallback
