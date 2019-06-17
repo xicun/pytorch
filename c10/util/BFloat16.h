@@ -44,9 +44,14 @@ struct alignas(2) BFloat16 {
   C10_HOST_DEVICE BFloat16() = default;
 #else
   BFloat16() = default;
-
 #endif
 
+  struct from_bits_t {};
+  static constexpr from_bits_t from_bits() {
+    return from_bits_t();
+  }
+
+  constexpr C10_HOST_DEVICE BFloat16(unsigned short bits, from_bits_t) : val_(bits){};
   explicit inline C10_HOST_DEVICE BFloat16(float value);
   explicit inline C10_HOST_DEVICE operator float() const;
 };
