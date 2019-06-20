@@ -13,8 +13,8 @@
 #include <c10/util/Half.h>
 #include <c10/core/TensorTypeIdRegistration.h>
 #include <ATen/core/Reduction.h>
-#include <c10/core/TensorOptions.h>
 #include <c10/util/intrusive_ptr.h>
+#include <ATen/core/TensorOptions.h>
 
 #include <c10/util/Optional.h>
 

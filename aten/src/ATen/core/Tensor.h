@@ -23,9 +23,6 @@
 namespace caffe2 {
 class Tensor;
 }
-namespace c10{
-struct TensorOptions;
-}
 namespace at {
 struct Generator;
 struct Type;
