@@ -1111,8 +1111,6 @@ def _enable_recursive_script():
 def script(obj, optimize=True, _frames_up=0, _rcb=None):
     if not _enabled:
         return obj
-    if _rcb is None:
-        _rcb = _jit_internal.createResolutionCallback(_frames_up + 1)
 
     if torch._C._jit_recursive_script():
         if isinstance(obj, torch.nn.Module):
@@ -1123,12 +1121,18 @@ def script(obj, optimize=True, _frames_up=0, _rcb=None):
             raise RuntimeError("TorchScript classes must be new-style classes. Please inherit from 'object'")
         qualified_name = _qualified_name(obj)
         ast = get_jit_class_def(obj, obj.__name__)
+
+        if _rcb is None:
+            _rcb = _jit_internal.createResolutionCallback(_frames_up + 1)
+
         _jit_script_class_compile(qualified_name, ast, _rcb)
         _add_script_class(obj, qualified_name)
         return obj
     else:
         ast = get_jit_def(obj)
-        fn = torch._C._jit_script_compile(ast, _rcb, get_default_args(obj))
+        if _rcb is None:
+            rcb = createResolutionCallbackFromClosure(obj)
+        fn = torch._C._jit_script_compile(ast, rcb, get_default_args(obj))
         # Forward docstrings
         fn.__doc__ = obj.__doc__
         return fn
